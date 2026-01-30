@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <title>Trending Songs | ZBX 101</title>
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+
+<header>
+
+  <h1>🔥 Trending Songs</h1>
+
+  <input type="text" id="search" placeholder="Search song..." onkeyup="searchSong()">
+
+</header>
+
+
+
+<div class="song-list" id="songList">
+
+
+
+  <div class="song">
+
+    <p>Song Name 1</p>
+
+    <audio controls src="song1.mp3"></audio>
+
+  </div>
+
+
+
+  <div class="song">
+
+    <p>Song Name 2</p>
+
+    <audio controls src="song2.mp3"></audio>
+
+  </div>
+
+
+
+  <div class="song">
+
+    <p>Song Name 3</p>
+
+    <audio controls src="song3.mp3"></audio>
+
+  </div>
+
+
+
+</div>
+
+
+
+<button class="upload-btn">⬆</button>
+
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
+body {
+
+  margin: 0;
+
+  background: black;
+
+  color: white;
+
+  font-family: sans-serif;
+
+  text-align: center;
+
+}
+
+
+
+header {
+
+  background: linear-gradient(45deg, pink, purple);
+
+  padding: 20px;
+
+}
+
+
+
+input {
+
+  padding: 10px;
+
+  width: 80%;
+
+  margin-top: 10px;
+
+  border-radius: 20px;
+
+  border: none;
+
+}
+
+
+
+.song {
+
+  background: #111;
+
+  margin: 15px;
+
+  padding: 15px;
+
+  border-radius: 12px;
+
+  box-shadow: 0 0 10px pink;
+
+}
+
+
+
+.upload-btn {
+
+  position: fixed;
+
+  right: 20px;
+
+  bottom: 20px;
+
+  background: pink;
+
+  color: black;
+
+  padding: 15px 18px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  font-size: 20px;
+
+}
+function searchSong() {
+
+  let input = document.getElementById("search").value.toLowerCase();
+
+  let songs = document.getElementsByClassName("song");
+
+
+
+  for (let i = 0; i < songs.length; i++) {
+
+    let text = songs[i].innerText.toLowerCase();
+
+    songs[i].style.display = text.includes(input) ? "block" : "none";
+
+  }
+
+}
+
